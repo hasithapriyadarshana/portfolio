@@ -1,9 +1,25 @@
-import React from 'react'
-
-function Button() {
+import React from "react";
+import "./Button.css";
+type ButtonProps = {
+  text: string; // Button label
+  onClick?: () => void; // Optional click handler
+  type?: "button" | "submit" | "reset"; // Button type
+  className?: string; // Extra styles (optional)
+};
+function Button({
+  text,
+  onClick,
+  type = "button",
+  className = "",
+}: ButtonProps) {
   return (
-    <div>Button</div>
-  )
+    <button
+      className={`btn ${className}`}
+      onClick={onClick}
+      type={type}
+    >
+      {text}
+    </button>
+  );
 }
-
-export default Button
+export default Button;
